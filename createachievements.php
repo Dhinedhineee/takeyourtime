@@ -1,8 +1,12 @@
 
 <html>
+	<head>
 	<title>
 		Take Your Time
 	</title>
+			<link rel="stylesheet" type="text/css" href="styles/main.css">	
+
+	</head>
 
 	<body>
 	<h1> It's Time to Take Your Time </h1>

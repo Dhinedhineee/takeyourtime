@@ -1,9 +1,11 @@
-
 <html>
+	<head>
 	<title>
 		Take Your Time
 	</title>
-
+	<link rel="stylesheet" type="text/css" href="styles/main.css">	
+	<script src="script/jquery-1.10.2.js"></script>
+</head>
 	<body>
 	<h1> It's Time to Take Your Time </h1>
 	<h2> CREATE TASKS </h2>

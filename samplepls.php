@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<script src="js/jquery.js"/>
+	<script src="script/jquery.js"/>
 	<script>
 		$(document).ready(function() {
 			$("#butako").click(function() {
@@ -10,6 +10,7 @@
 			});
 		});	
 	</script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">	
 </head>
 
 <body>

@@ -2,9 +2,10 @@
 <html>	
 	<head>
 	<title>Doing Tasks</title>
-		<script src="js/jquery.js"></script>
+		<script src="script/jquery.js"></script>
 	TIME IS RUNNING OUT <br>
 	START SOME TASKS!
+			<link rel="stylesheet" type="text/css" href="styles/main.css">	
 	</head>	
 
 	
