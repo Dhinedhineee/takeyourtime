@@ -137,6 +137,7 @@
 			session_start();
 			$_SESSION['reallyloggedin'] = true;
 			$_SESSION['username'] = $name;
+			$_SESSION['user_id'] = mysqli_insert_id($conn);
 			break;
 
 		case 'userlogin':
