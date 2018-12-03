@@ -1,18 +1,22 @@
+<?php require('logged.php'); ?>
+
 <html>
 <head>
 	<title>
 		Tag Me
 	</title>
 		<link rel="stylesheet" type="text/css" href="styles/main.css">	
-
+		<script src="script/jquery-1.10.2.js"></script>
 </head>
 	
 	<body>
+	<div id="nav-placeholder"></div>
+
 	<h1> It's Time to Take Your Time </h1>
 	<h2> TAG TASKS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/processing?process=addtags" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=addtags" method="post" enctype="multipart/form-data">
 			
 			<?php 
 					function toecho($task_ID, $task_name){
@@ -55,3 +59,9 @@
 
 	</body>
 </html>
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

@@ -1,12 +1,16 @@
+<?php require('logged.php'); ?>
+
 <html>
 	<head>
 	<title>
 		Tag Me
 	</title>
 			<link rel="stylesheet" type="text/css" href="styles/main.css">	
-		</head>
-
+		<script src="script/jquery-1.10.2.js"></script>
+	</head>
 	<body>
+
+	<div id="nav-placeholder"></div>
 	<h1> It's Time to Take Your Time </h1>
 	<h2> BREAKDOWN TASKS </h2>
 
@@ -54,3 +58,9 @@
 
 	</body>
 </html>
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

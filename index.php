@@ -10,11 +10,6 @@
 	</head>
 	<body>
 
-
-
-
-
-
 	<div id="nav-placeholder"></div>
 	
 	<div class="startaction">

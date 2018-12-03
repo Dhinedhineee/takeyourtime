@@ -1,14 +1,20 @@
+<?php require('logged.php'); ?>
+
 <html>
 	<head>
-	<title>
-		Take Your Time
-	</title>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">	
-	<script src="script/jquery-1.10.2.js"></script>
-</head>
+		<title>
+			Take Your Time
+		</title>
+		<link rel="stylesheet" type="text/css" href="styles/main.css">	
+		<script src="script/jquery-1.10.2.js"></script>
+	</head>
+
 	<body>
+	<div id="nav-placeholder"></div>
+
 	<h1> It's Time to Take Your Time </h1>
 	<h2> CREATE TASKS </h2>
+
 
 	<div id='AddTasks'>
 		<form action="./processing?process=addtasks" method="post" enctype="multipart/form-data">
@@ -41,3 +47,10 @@
 
 	</body>
 </html>
+
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

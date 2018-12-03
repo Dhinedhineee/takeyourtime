@@ -1,3 +1,5 @@
+<?php require('logged.php'); ?>
+
 <!DOCTYPE html>
 <html>	
 	<head>
@@ -6,10 +8,11 @@
 		TIME IS RUNNING OUT <br>
 		START SOME TASKS!
 		<link rel="stylesheet" type="text/css" href="styles/main.css">	
-	</head>	
-
-	
+		<script src="script/jquery-1.10.2.js"></script>
+	</head>
 	<body>
+
+	<div id="nav-placeholder"></div>
 		<div>
 			<a href='./createtasks.php'>CREATE NEW TASK</a>
 		</div>
@@ -149,3 +152,10 @@
 		
 	</script>
 </html>
+
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

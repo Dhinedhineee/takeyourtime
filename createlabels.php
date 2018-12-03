@@ -1,3 +1,4 @@
+<?php require('logged.php'); ?>
 
 <html>
 	<head>
@@ -6,14 +7,17 @@
 		Take Your Time
 	</title>
 			<link rel="stylesheet" type="text/css" href="styles/main.css">	
-
-</head>
+<script src="script/jquery-1.10.2.js"></script>
+	</head>
 	<body>
+
+	<div id="nav-placeholder"></div>
+	
 	<h1> It's Time to Take Your Time </h1>
 	<h2> CREATE LABELS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/addlabels.php" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=addlabels" method="post" enctype="multipart/form-data">
 		<h4>Add labels</h4>
 		<p>	
 		<label>Label Name<br>
@@ -27,3 +31,9 @@
 
 	</body>
 </html>
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

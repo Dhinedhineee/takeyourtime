@@ -1,3 +1,4 @@
+<?php require('logged.php'); ?>
 
 <html>
 	<head>
@@ -6,13 +7,16 @@
 	</title>
 
 			<link rel="stylesheet" type="text/css" href="styles/main.css">	
-</head>
+		<script src="script/jquery-1.10.2.js"></script>
+	</head>
 	<body>
+
+	<div id="nav-placeholder"></div>
 	<h1> It's Time to Take Your Time </h1>
 	<h2> CREATE USERS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/addusers.php" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=adduser" method="post" enctype="multipart/form-data">
 		<h4>Add User</h4>
 		<p>	
 		<label>User Name<br>
@@ -26,3 +30,10 @@
 
 	</body>
 </html>
+
+
+<script>
+	$(function(){
+	  $("#nav-placeholder").load("nav.html");
+	});
+</script>

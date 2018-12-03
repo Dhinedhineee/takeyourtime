@@ -1,3 +1,5 @@
+<?php require('logged.php'); ?>
+
 <html>
 	<head>
 	<title>
