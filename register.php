@@ -1,5 +1,3 @@
-<?php require('logged.php'); ?>
-
 <html>
 	<head>
 	<title>
@@ -31,12 +29,13 @@
 	</form>
 	</div>
 
+	<p>Already a registered user? <a href="./login">Log in.</a></p>
 	</body>
 </html>
 
 
 <script>
 	$(function(){
-	  $("#nav-placeholder").load("nav.html");
+	  $("#nav-placeholder").load("nav2.html");
 	});
 </script>
