@@ -5,7 +5,7 @@
 	else
 		redirect('/takeyourtime');
 
-	if ($task != 'userlogin'){
+	if ($task != 'userlogin' && $task != 'adduser'){
 		require('logged.php');
 	}
 
@@ -13,7 +13,6 @@
 	
 	if (!$conn)
 	  	die("Connection error: " . mysqli_connect_error());
-
 
 	switch ($task) {
 		case 'addachievements':
@@ -130,14 +129,14 @@
 			var_dump($result);
 			break;
 
-		case 'addusers':
+		case 'adduser':
 			$name = htmlspecialchars($_POST['user-name']);
 			$pw = hash('sha512', htmlspecialchars($_POST['user-pw']));
 			$query = "INSERT INTO User (user_name, password) VALUES ('$name', '$pw');";
 			$result = $conn->query($query);
 			session_start();
 			$_SESSION['reallyloggedin'] = true;
-			$_SESSION['username'] = $name;	
+			$_SESSION['username'] = $name;
 			break;
 
 		case 'userlogin':

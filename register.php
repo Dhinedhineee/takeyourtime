@@ -11,11 +11,10 @@
 
 	<div id="nav-placeholder"></div>
 	<h1> It's Time to Take Your Time </h1>
-	<h2> REGISTRATION </h2>
+	<h2> USER REGISTRATION </h2>
 
 	<div id='AddTasks'>
 		<form action="./processing?process=adduser" method="post" enctype="multipart/form-data">
-		<h4>Register</h4>
 		
 		<p><label>User Name<br>
 			<input type="text" required name="user-name" size="40" id="user-name"/>

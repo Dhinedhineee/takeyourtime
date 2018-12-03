@@ -13,7 +13,7 @@
 	<div id="nav-placeholder"></div>
 	
 	<h1> It's Time to Take Your Time </h1>
-	<h2> LOGIN </h2>
+	<h2> USER LOGIN </h2>
 
 	<div id='AddTasks'>
 		<form action="./processing?process=userlogin" method="post" enctype="multipart/form-data">
