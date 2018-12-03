@@ -11,7 +11,7 @@
 	<h2> BREAKDOWN TASKS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/addbreakdowns.php" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=addbreakdown" method="post" enctype="multipart/form-data">
 			
 			<?php 
 					function toecho($task_ID, $task_name){

@@ -11,7 +11,7 @@
 	<h2> CREATE TASKS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/addtasks.php" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=addtasks" method="post" enctype="multipart/form-data">
 		<h4>Add Tasks</h4>
 		<p>	
 		<label>Task Name<br>

@@ -12,7 +12,7 @@
 	<h2> TAG TASKS </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/addtags.php" method="post" enctype="multipart/form-data">
+		<form action="/takeyourtime/processing?process=addtags" method="post" enctype="multipart/form-data">
 			
 			<?php 
 					function toecho($task_ID, $task_name){

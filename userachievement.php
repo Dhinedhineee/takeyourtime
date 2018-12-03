@@ -15,7 +15,7 @@
 	<h2> ACHIEVEMENT TIME </h2>
 
 	<div id='AddTasks'>
-		<form action="/takeyourtime/adduserachievements.php" method="post" enctype="multipart/form-data">
+		<form action="./processing?process=adduserachievement" method="post" enctype="multipart/form-data">
 			
 			<?php 
 					function toecho($task_ID, $task_name){
@@ -54,6 +54,27 @@
 				?>
 			
 		<br>
+	  	<input type="submit" value="Submit">
+	</form>
+	</div>
+
+	<h2> CREATE ACHIEVEMENTS </h2>
+
+	<div id='AddTasks'>
+		<form action="./addachievements.php" method="post" enctype="multipart/form-data">
+		<h4>Add Achievements</h4>
+		<p><label>Achievement Name<br>
+			<input type="text" required name="ach-name" size="40" id="ach-name"/>
+		</label></p>
+
+		<p><label>Achievement Desc<br>
+			<textarea required name="ach-desc" rows="4" cols="50" id="ach-desc"></textarea>
+		</label></p>
+
+		<p><label>Achievement Exp<br>
+			<input type="number" required name="ach-exp" size="40" id="ach-exp"/>
+		</label></p>
+		
 	  	<input type="submit" value="Submit">
 	</form>
 	</div>

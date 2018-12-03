@@ -3,9 +3,9 @@
 	<head>
 	<title>Doing Tasks</title>
 		<script src="script/jquery.js"></script>
-	TIME IS RUNNING OUT <br>
-	START SOME TASKS!
-			<link rel="stylesheet" type="text/css" href="styles/main.css">	
+		TIME IS RUNNING OUT <br>
+		START SOME TASKS!
+		<link rel="stylesheet" type="text/css" href="styles/main.css">	
 	</head>	
 
 	
@@ -21,7 +21,7 @@
 			<h1 id="timer"></h1>
 			
 			<button type="button" id="but-timer" onClick=startTimer() style="height:100px; width:200px; background-color:red; color:white;">START NOW</button>
-			<form action='./addtimer.php' method="post" onsubmit="return setEnd()">
+			<form action='./processing?process=addtasks' method="post" onsubmit="return setEnd()">
 				<!-- <button type="button" id="but-timer-end">END NOW</button> !-->
 				<?php 
 					
@@ -30,7 +30,10 @@
 						echo '<tr>';
 						echo '<td><input type="radio"required name="task-id" value="'.$task_ID.'">'.$task_name."<br/></td>";
 						echo '<td align="center">'.$due_date.'</td>';
+						// echo '<script>alert("'.$time_needed.'");</script>';
+						var_dump($time_needed);
 						echo '<td align="center">'.gmdate("H:i:s", $time_needed).'</td>';
+
 						echo '<td align="center">'.gmdate("H:i:s", $time_spent).'	</td>';
 						echo '<td align="center">'.gmdate("H:i:s", $time_needed-$time_spent).'</td>';
 						echo '<td align="center">'.strval($time_needed-$time_spent)	.'</td>';
