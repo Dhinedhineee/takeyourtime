@@ -13,32 +13,33 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    display: flex;
+    height: 40px;
     align-items: center;
-    padding-left: 50px;
+    padding: 10px;
     box-shadow: 0 0 25px 0 black;
+    float: left;
 }
-
-
 
 header * {
-	display: inline;
-
+	display: flex;
+    flex: 0 0 auto;
 }
-
-header li {
-	padding: 20px 10px;
-}
-
 header li:hover {
 	background-color: #2C3053;
 }
 header li a {
 	text-decoration: none;
 	color: white;
+    padding: 10px;
+    font-size: 15px;
 }
 
+li:nth-child(1) {
+    margin-right: auto;
+}
+.user {
+    margin-left: auto;
+}
 
 .startaction {
 	margin: auto;
@@ -63,4 +64,38 @@ header li a {
 a {
     text-decoration: none;
     color: yellow;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: #1E274A;
+    width: 40%;
+    margin-bottom: 2px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.75);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 3px 16px;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    justify-content: space-between;
+    width: 100%;
+}
+
+.duedate, .timeneeded, .timespent, .timerem, .timeremsec{
+    padding: 0px;
+    margin: 0px;
+}
+
+.taskname {
+    background-color: #434E7B;
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.25);
 }

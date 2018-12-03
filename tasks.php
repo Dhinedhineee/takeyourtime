@@ -1,4 +1,4 @@
-<?php require('logged.php'); ?>
+<?php require('logged.php'); include('nav.php'); ?>
 
 <!DOCTYPE html>
 <html>	
@@ -8,33 +8,31 @@
 		TIME IS RUNNING OUT <br>
 		START SOME TASKS!
 		<link rel="stylesheet" type="text/css" href="styles/main.css">	
-		<script src="script/jquery-1.10.2.js"></script>
 	</head>
 	<body>
 
-	<div id="nav-placeholder"></div>
 		<div>
 			
 			<br>
 			<p id="timestart"></p>
 			<h1 id="timer"></h1>
 			
-			<button type="button" id="but-timer" onClick=startTimer() style="height:100px; width:200px; background-color:red; color:white;">START NOW</button>
+			<!-- <button type="button" id="but-timer" onClick=startTimer() style="height:100px; width:200px; background-color:red; color:white;">START NOW</button> -->
+
 			<form action='./processing?process=addtasks' method="post" onsubmit="return setEnd()">
-				<!-- <button type="button" id="but-timer-end">END NOW</button> !-->
 				<?php 
-					
-
 					function toecho($task_ID, $task_name, $due_date, $time_needed, $time_spent){
-						echo '<tr>';
-						echo '<td><input type="radio"required name="task-id" value="'.$task_ID.'">'.$task_name."<br/></td>";
-						echo '<td align="center">'.$due_date.'</td>';
-						echo '<td align="center">'.gmdate("H:i:s", $time_needed).'</td>';
-
-						echo '<td align="center">'.gmdate("H:i:s", $time_spent).'	</td>';
-						echo '<td align="center">'.gmdate("H:i:s", $time_needed-$time_spent).'</td>';
-						echo '<td align="center">'.strval($time_needed-$time_spent)	.'</td>';
-						echo '</tr>';
+						echo '<div>';
+						echo '<div class=\'card\'><div class=\'container\'>';
+						echo '<p class=\'taskname\'><input type="radio"required name="task-id" value="'.$task_ID.'">'.$task_name."</p>";
+						echo "<p class='duedate'>Due: ".$due_date."</p>";
+						echo "<p class='timeneeded'>Required: ".gmdate("H:i:s", $time_needed)."</p>";
+						echo "<p class='timespent'>Done: ".gmdate("H:i:s", $time_spent)."</p>";
+						echo '</div><div>';
+						echo "<span class='timerem'>".gmdate("H:i:s", $time_needed-$time_spent)."</span>";
+						echo "<span class='timeremsec'>".strval($time_needed-$time_spent)."</span>";
+						echo '</div>';
+						echo '</div></div><br>';
 					}
 
 					$conn=mysqli_connect("localhost","root","root","takeyourtime");
@@ -42,17 +40,12 @@
 					if (!$conn)
 					  	die("Connection error: " . mysqli_connect_error());
 					
-					$query = "SELECT task_ID, task_name, time_needed, due_date, time_spent FROM Tasks WHERE status=0 ORDER BY due_date;";
+					$query = "SELECT Tasks.task_ID, task_name, time_needed, due_date, time_spent FROM Tasks,todo WHERE status=0 AND Tasks.task_ID=todo.task_ID AND user_ID=".$_SESSION['user_id']." ORDER BY due_date;";
 					$result = $conn->query($query);
-					echo '<table border="1">';
-					echo '<th>Tasks</th><th>Deadline</th><th>Required</th><th>Done</th><th>Remaining</th><th>REM</th>';
 					foreach ($result as $row)	toecho($row['task_ID'], $row['task_name'], $row['due_date'], $row['time_needed'], $row['time_spent']);
-					echo '</table>';
 
 				?>
-				<!-- <p id="test"> <label>Insert Project Name
-					<input type="text" required name="task-name" id="task-name"/>
-				</label></p> !-->
+
 				<input type="hidden" name="task-status" id="task_status" value="0" />
 				<input type="hidden" name="time-start" id="time_start" />
 				<input type="hidden" name="time-end" id="time_end" />
@@ -143,13 +136,7 @@
 			var fin = confirm("TASK DONE?");
 			if (fin == true)	document.getElementById("task_status").value = 1;
 		}
+
 		
 	</script>
 </html>
-
-
-<script>
-	$(function(){
-	  $("#nav-placeholder").load("nav.html");
-	});
-</script>

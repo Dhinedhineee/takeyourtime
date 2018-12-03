@@ -1,4 +1,4 @@
-<?php require('logged.php'); ?>
+<?php require('logged.php'); include('nav.php'); ?>
 
 <html>
 	<head>
@@ -6,12 +6,10 @@
 			Take Your Time
 		</title>
 		<link rel="stylesheet" type="text/css" href="styles/main.css">	
-		<script src="script/jquery-1.10.2.js"></script>
 	</head>
-
+	
 	<body>
-	<div id="nav-placeholder"></div>
-
+	
 	<h1> It's Time to Take Your Time </h1>
 	<h2> CREATE TASKS </h2>
 
@@ -21,7 +19,7 @@
 		<h4>Add Tasks</h4>
 		<p>	
 		<label>Task Name<br>
-			<input type="text" required name="task-name" size="40" id="task-name"/>
+			<input type="text" required name="task-name" size="20" maxlength="20" id="task-name"/>
 		</label>
 		</p>
 
@@ -47,10 +45,3 @@
 
 	</body>
 </html>
-
-
-<script>
-	$(function(){
-	  $("#nav-placeholder").load("nav.html");
-	});
-</script>
