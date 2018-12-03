@@ -84,8 +84,8 @@ a {
 .container {
     padding: 3px 16px;
     display: flex;
-    flex-direction: column;
-    /*flex-wrap: wrap;*/
+    /*flex-direction: column;*/
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -98,4 +98,8 @@ a {
 .taskname {
     background-color: #434E7B;
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.25);
+}
+
+.timeremsec, .timerem {
+    /*display: inline;    */
 }

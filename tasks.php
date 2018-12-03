@@ -22,15 +22,17 @@
 			<form action='./processing?process=addtasks' method="post" onsubmit="return setEnd()">
 				<?php 
 					function toecho($task_ID, $task_name, $due_date, $time_needed, $time_spent){
-						echo '<div>';
 						echo '<div class=\'card\'><div class=\'container\'>';
+						
+						echo '<div>';
 						echo '<p class=\'taskname\'><input type="radio"required name="task-id" value="'.$task_ID.'">'.$task_name."</p>";
 						echo "<p class='duedate'>Due: ".$due_date."</p>";
 						echo "<p class='timeneeded'>Required: ".gmdate("H:i:s", $time_needed)."</p>";
 						echo "<p class='timespent'>Done: ".gmdate("H:i:s", $time_spent)."</p>";
 						echo '</div><div>';
-						echo "<span class='timerem'>".gmdate("H:i:s", $time_needed-$time_spent)."</span>";
-						echo "<span class='timeremsec'>".strval($time_needed-$time_spent)."</span>";
+
+						echo "<p class='timerem'>".gmdate("H:i:s", $time_needed-$time_spent)."</p>";
+						echo "<p class='timeremsec'>".strval($time_needed-$time_spent)."</p>";
 						echo '</div>';
 						echo '</div></div><br>';
 					}
