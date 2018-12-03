@@ -29,6 +29,7 @@
 	</form>
 	</div>
 
+	<p>Not a registered user? <a href="./register">Sign up.</a></p>
 	</body>
 </html>
 
@@ -36,6 +37,6 @@
 
 <script>
 	$(function(){
-	  $("#nav-placeholder").load("nav.html");
+	  $("#nav-placeholder").load("nav2.html");
 	});
 </script>

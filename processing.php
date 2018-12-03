@@ -122,22 +122,23 @@
 
 		case 'adduserachievements':
 			$user_ID = htmlspecialchars($_POST['user-ID']);
-		$ach_ID = htmlspecialchars($_POST['ach-ID']);
+			$ach_ID = htmlspecialchars($_POST['ach-ID']);
 
-		$query = "INSERT INTO achieved (user_ID, ach_ID) VALUES ('$user_ID', '$ach_ID')";
-		var_dump($query);
-		$result = $conn->query($query);
-		var_dump($result);
-		break;
+			$query = "INSERT INTO achieved (user_ID, ach_ID) VALUES ('$user_ID', '$ach_ID')";
+			var_dump($query);
+			$result = $conn->query($query);
+			var_dump($result);
+			break;
 
 		case 'addusers':
 			$name = htmlspecialchars($_POST['user-name']);
-		$pw = hash('sha512', htmlspecialchars($_POST['user-pw']));
-		$query = "INSERT INTO User (user_name) VALUES ('$name');";
-		var_dump($query);
-		$result = $conn->query($query);
-		var_dump($result);
-		break;
+			$pw = hash('sha512', htmlspecialchars($_POST['user-pw']));
+			$query = "INSERT INTO User (user_name, password) VALUES ('$name', '$pw');";
+			$result = $conn->query($query);
+			session_start();
+			$_SESSION['reallyloggedin'] = true;
+			$_SESSION['username'] = $name;	
+			break;
 
 		case 'userlogin':
 			$name = htmlspecialchars($_POST['user-name']);

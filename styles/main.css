@@ -1,8 +1,5 @@
 
-
 body {
-    /*background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');*/
-    /*background-size: cover;*/
     font-family: sans-serif;
   	margin-top: 80px;
     padding: 30px;
@@ -61,4 +58,9 @@ header li a {
     width: 200px;
     color: white;
     display: inline-block;
-}-
+}
+
+a {
+    text-decoration: none;
+    color: yellow;
+}

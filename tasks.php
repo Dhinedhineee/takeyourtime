@@ -14,10 +14,6 @@
 
 	<div id="nav-placeholder"></div>
 		<div>
-			<a href='./createtasks.php'>CREATE NEW TASK</a>
-		</div>
-
-		<div>
 			
 			<br>
 			<p id="timestart"></p>
@@ -33,8 +29,6 @@
 						echo '<tr>';
 						echo '<td><input type="radio"required name="task-id" value="'.$task_ID.'">'.$task_name."<br/></td>";
 						echo '<td align="center">'.$due_date.'</td>';
-						// echo '<script>alert("'.$time_needed.'");</script>';
-						var_dump($time_needed);
 						echo '<td align="center">'.gmdate("H:i:s", $time_needed).'</td>';
 
 						echo '<td align="center">'.gmdate("H:i:s", $time_spent).'	</td>';
