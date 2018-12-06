@@ -35,18 +35,24 @@
 						
 						$query = "SELECT Tasks.task_ID, task_name FROM Tasks,todo WHERE status=0 AND Tasks.task_ID=todo.task_ID AND user_ID=".$_SESSION['user_id'];
 						$result = $conn->query($query);
-						echo '<table border="1" style="display:inline-block;">';
-						echo '<th>Tasks Parent</th>';
-						foreach ($result as $row)	toecho($row['task_ID'], $row['task_name']);
-						echo '</table>';
+						if ($result->num_rows == 0){
+							echo "<p>You have not yet created any tasks.</p>";
+							echo "<p>Start some tasks <a href='./createtasks'>here</a>.<p>";
+						}else {
+							echo '<table border="1" style="display:inline-block;">';
+							echo '<th>Tasks Parent</th>';
+							foreach ($result as $row)	toecho($row['task_ID'], $row['task_name']);
+							echo '</table>';
 
-						$query = "SELECT Tasks.task_ID, task_name FROM Tasks,todo WHERE status=0 AND Tasks.task_ID=todo.task_ID AND user_ID=".$_SESSION['user_id'];
-				
-						$result = $conn->query($query);
-						echo '<table border="1" style="display:inline-block;">';
-						echo '<th>Tasks Child</th>';
-						foreach ($result as $row)	toecho2($row['task_ID'], $row['task_name']);
-						echo '</table>';
+							$query = "SELECT Tasks.task_ID, task_name FROM Tasks,todo WHERE status=0 AND Tasks.task_ID=todo.task_ID AND user_ID=".$_SESSION['user_id'];
+					
+							$result = $conn->query($query);
+							echo '<table border="1" style="display:inline-block;">';
+							echo '<th>Tasks Child</th>';
+							foreach ($result as $row)	toecho2($row['task_ID'], $row['task_name']);
+							echo '</table>';
+						}
+
 					?>
 				
 			<br>

@@ -153,6 +153,41 @@
 			}
 			break;
 
+		case 'deletetask':
+			$task_ID = htmlspecialchars($_POST['task_list']);
+			$query1 = "SELECT * FROM done WHERE task_ID='$task_ID'";
+			$result = $conn->query($query1);
+			foreach($result as $row){
+				$querya = "DELETE FROM done WHERE timer_ID='".$row['timer_ID']."'";	
+				$resa = $conn->query($querya);
+				$queryb = "DELETE FROM timer WHERE timer_ID='".$row['timer_ID']."'";	
+				$resb = $conn->query($queryb);
+			}
+			$queryx = "DELETE FROM todo WHERE task_ID='$task_ID'";
+			// $result = $conn->query($queryx);
+			$queryx = "DELETE FROM task WHERE task_ID='$task_ID'";
+			// $result = $conn->query($queryx);
+			
+			break;
+
+		case 'deletetimer':
+			// $timer_ID = htmlspecialchars($_POST['timer-hidden']);
+			$timer_ID = htmlspecialchars($_GET['timerid']);
+			$task_ID = htmlspecialchars($_GET['taskid']);
+			$queryw = "SELECT * FROM todo WHERE task_ID='$task_ID' AND user_id=".$_SESSION['user_id'];
+			// var_dump($queryw);
+			$resw = $conn->query($queryw);
+			// var_dump($resw);
+			if ($resw->num_rows == 1){
+				$querya = "DELETE FROM done WHERE timer_ID='$timer_ID'";	
+				// var_dump($querya);
+				$resa = $conn->query($querya);
+				$queryb = "DELETE FROM timer WHERE timer_ID='$timer_ID'";
+				// var_dump($queryb);	
+				$resb = $conn->query($queryb);		
+			}
+			// return;
+			break;
 		default:
 			# code...
 			break;

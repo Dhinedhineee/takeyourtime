@@ -1,9 +1,10 @@
 <?php require('logged.php'); include('nav.php'); ?>
 
-<!DOCTYPE html>
 <html>	
 	<head>
-	<title>Doing Tasks</title>
+		<title>
+			Take Your Time
+		</title>
 		<script src="script/jquery.js"></script>
 		TIME IS RUNNING OUT <br>
 		START SOME TASKS!
@@ -20,7 +21,18 @@
 			<form action='./processing?process=addtimer' method="post" onsubmit="return setEnd()">
 				<?php 
 					function toecho($task_ID, $task_name, $due_date, $time_needed, $time_spent){
-						echo '<div class=\'card\'><div class=\'container\'>';
+						$ded = new DateTime($due_date);
+						$timezone= "Asia/Manila";
+						date_default_timezone_set($timezone);
+
+						$due = $ded->diff(new DateTime());
+						if ($due->invert == 0){
+							echo '<div class=\'card\' style="background-color: #B34C4B;"><div class=\'container\'>';	
+						}else if ($due->d == 0){
+							echo '<div class=\'card\' style="background-color: #38AF5D;"><div class=\'container\'>';	
+						}else {
+							echo '<div class=\'card\'><div class=\'container\'>';	
+						}
 						
 						echo '<div>';
 						echo '<p class=\'taskname\'><input type="radio"required onClick=hideothers() name="task-id" value="'.$task_ID.'">'.$task_name."</p>";
@@ -66,7 +78,7 @@
 
 	<script>
 	var sec = 0;
-		
+
 		function setEnd(){
 			document.getElementById("time_end").value = new Date().getTime();
 			document.getElementById("duration").value = sec;
@@ -75,6 +87,7 @@
 		}
 
 		function hideothers(){
+			document.title = "Doing Tasks [RUNNING]";
 			var radios = document.getElementsByName('task-id');
 			var unhidden = 0;
 			for (var i = 0, length = radios.length; i < length; i++){

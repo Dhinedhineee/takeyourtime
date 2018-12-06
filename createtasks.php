@@ -37,7 +37,6 @@
 			<input type="number" name="task-hours-hr" value="0" min="0" size="10"/>
 			<input type="number" name="task-hours-min" value="0" min="0" max="59"/>
 		</label></p>
-
 		
 	  	<input type="submit" value="Submit">
 	</form>
